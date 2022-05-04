@@ -1,1 +1,11 @@
 <h1> Społczenościowy system informowania o cenach na stacjach paliw</h1>
+<h3> Dzisiejsza data: <%= Time.now %> <br> Liczba uczestników projektu: <%= @students_number %></h3>
+<h3> Lista stacji paliw: <h3>
+
+<ul>
+<% @stations.each do |station| %>
+  <%= link_to station do %>
+    <li><%= station.name %> <%= station.address %></li>
+  <% end %>
+<% end %>
+</ul>
