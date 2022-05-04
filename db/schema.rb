@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_04_195516) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_04_200819) do
   create_table "petrol_stations", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -35,6 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_04_195516) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+    t.index ["index"], name: "index_users_on_index", unique: true
   end
 
   create_table "users_petrol_stations", force: :cascade do |t|
