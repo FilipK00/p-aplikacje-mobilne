@@ -1,0 +1,2 @@
+class PetrolStation < ApplicationRecord
+end

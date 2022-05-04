@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Petrol stations</h1>
+
+<div id="petrol_stations">
+  <% @petrol_stations.each do |petrol_station| %>
+    <%= render petrol_station %>
+    <p>
+      <%= link_to "Show this petrol station", petrol_station %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New petrol station", new_petrol_station_path %>
