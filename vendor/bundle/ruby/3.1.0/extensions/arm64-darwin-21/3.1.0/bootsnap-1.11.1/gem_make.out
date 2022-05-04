@@ -1,0 +1,15 @@
+current directory: /Users/filip/Files/Programming/Projects/AplikacjeMobilne/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.11.1/ext/bootsnap
+/Users/filip/.rvm/rubies/ruby-3.1.2/bin/ruby -I /Users/filip/.rvm/rubies/ruby-3.1.2/lib/ruby/3.1.0 -r ./siteconf20220504-18543-5rq8yh.rb extconf.rb
+creating Makefile
+
+current directory: /Users/filip/Files/Programming/Projects/AplikacjeMobilne/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.11.1/ext/bootsnap
+make DESTDIR\= clean
+
+current directory: /Users/filip/Files/Programming/Projects/AplikacjeMobilne/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.11.1/ext/bootsnap
+make DESTDIR\=
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/filip/Files/Programming/Projects/AplikacjeMobilne/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.11.1/ext/bootsnap
+make DESTDIR\= install
+/opt/homebrew/opt/coreutils/bin/ginstall -c -m 0755 bootsnap.bundle ./.gem.20220504-18543-3mddrn/bootsnap
