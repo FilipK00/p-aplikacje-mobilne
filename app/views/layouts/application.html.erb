@@ -8,9 +8,16 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <% if logged_in? %>
+      <%= link_to "Wyloguj się", logout_path, method: :delete %> <br>
+    <% else %>
+      <%= link_to "Zaloguj się", login_path %> <br>
+    <% end %>
   </head>
 
   <body>
+
     <%= yield %>
   </body>
 </html>
