@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
         end
       end
     end
- end
+  end
 
   def destroy
     respond_to do |format|
