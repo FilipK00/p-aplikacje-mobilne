@@ -12,7 +12,9 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @post = Post.new
+    @petrol_station = PetrolStation.find(params[:petrol_station_id])
+    @post_date = PostDate.find(params[:postdate_id])
+    @post = @post_date.posts.new
   end
 
   # GET /posts/1/edit
@@ -21,11 +23,14 @@ class PostsController < ApplicationController
 
   # POST /posts or /posts.json
   def create
-    @post = Post.new(post_params)
+    @petrol_station = PetrolStation.find(params[:petrol_station_id])
+    @post_date = PostDate.find(params[:post_date_id])
+    @post = @post_date.posts.new(post_params)
+    @post.user = current_user
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
+        format.html { redirect_to [@petrol_station, @post_date], notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,11 +43,11 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to post_url(@post), notice: "Post was successfully updated." }
-        format.json { render :show, status: :ok, location: @post }
+        format.html { redirect_to [@petrol_station, @post_date], notice: 'post_date was successfully updated.' }
+        format.json { render :show, status: :ok, location: @post_date }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.json { render json: @post_date.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -60,7 +65,8 @@ class PostsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
-      @post = Post.find(params[:id])
+      @petrol_station = PetrolStation.find(params[:petrol_station_id])
+      @post_date = PostDate.find(params[:post_date_id])
     end
 
     # Only allow a list of trusted parameters through.

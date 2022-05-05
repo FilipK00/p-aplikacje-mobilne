@@ -12,8 +12,8 @@ class PostDatesController < ApplicationController
 
   # GET /post_dates/new
   def new
-    @course = PetrolStation.find(params[:petrol_station_id])
-    @post_date = @petrol_station.post_dates.new
+    @petrol_station = PetrolStation.find(params[:petrol_station_id])
+    @post_date = @petrol_station.post_date.new
   end
 
   # GET /post_dates/1/edit
@@ -28,7 +28,7 @@ class PostDatesController < ApplicationController
   
     respond_to do |format|
       if @post_date.save
-        format.html { redirect_to [@petrol_station, @post_date], notice: 'Topic was successfully created.' }
+        format.html { redirect_to [@petrol_station, @post_date], notice: 'post_date was successfully created.' }
         format.json { render :show, status: :created, location: @post_date }
       else
         format.html { render :new }
@@ -41,7 +41,7 @@ class PostDatesController < ApplicationController
   def update
     respond_to do |format|
       if @post_date.update(post_date_params)
-        format.html { redirect_to [@petrol_station, @post_date], notice: 'Topic was successfully updated.' }
+        format.html { redirect_to [@petrol_station, @post_date], notice: 'post_date was successfully updated.' }
         format.json { render :show, status: :ok, location: @post_date }
       else
         format.html { render :edit }
@@ -63,7 +63,7 @@ class PostDatesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post_date
-      @petrol_station = PetrolStation.find(params[:petrol_station_id])
+      @petrol_station = petrol_station.find(params[:petrol_station_id])
       @post_date = PostDate.find(params[:id])
     end
 

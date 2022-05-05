@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users
   resources :petrol_stations do
     resources :post_dates, only: [:new, :create, :edit, :update, :show, :destroy] do
-      resources :post_dates, only: [:new, :create, :edit, :update, :show, :destroy]
+      resources :posts, only: [:new, :create, :edit, :update, :show, :destroy]
     end
   end
   
