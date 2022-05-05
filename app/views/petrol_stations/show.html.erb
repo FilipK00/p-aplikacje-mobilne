@@ -2,7 +2,28 @@
 
 <%= render @petrol_station %>
 
+  <h1>Daty wpisów</h1>
+<% if @petrol_station.post_date.length == 0 %>
+  Nie ma żadnych wpisów
+<% else %>
+  <% @petrol_station.post_date.each do |post_date| %>
+    <%= link_to [@petrol_station, post_date] do %>
+    <h4><%= post_date.title %> by <%= post_date.user.name %></h4>
+    <% end %>
+    <% post_date.posts.each do |post| %>
+      <p>
+        <%= post.body %>
+      </p>
+      <h6>by <%= post.user.name %></h6>
+    <% end %>
+  <% end %>
+<% end %>
 
+<hr>
+
+<% if logged_in? %>
+  <%= link_to "Dodaj datę", new_petrol_station_post_date_path(@petrol_station) %>
+<% end %>
 
 <%# <div> %>
   <%# <%= link_to "Edit this petrol station", edit_petrol_station_path(@petrol_station) %> 

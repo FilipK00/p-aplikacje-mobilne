@@ -9,27 +9,6 @@
     <%= petrol_station.address %>
   </p>
 
-  <h1>Lista tematów</h1>
-<% if @petrol_station.post_date.length == 0 %>
-  Nie ma żadnego tematu
-<% else %>
-  <% @petrol_station.post_date.each do |post_date| %>
-    <%= link_to [@petrol_station, post_date] do %>
-    <h4><%= post_date.title %> by <%= post_date.user.name %></h4>
-    <% end %>
-    <% post_date.posts.each do |post| %>
-      <p>
-        <%= post.body %>
-      </p>
-      <h6>by <%= post.user.name %></h6>
-    <% end %>
-  <% end %>
-<% end %>
 
-<hr>
-
-<% if logged_in? %>
-  <%= link_to "Dodaj temat", new_petrol_station_post_date_path(@petrol_station) %>
-<% end %>
 
 </div>
