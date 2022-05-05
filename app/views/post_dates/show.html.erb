@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @post_date %>
+
+<div>
+  <%= link_to "Edit this post date", edit_post_date_path(@post_date) %> |
+  <%= link_to "Back to post dates", post_dates_path %>
+
+  <%= button_to "Destroy this post date", @post_date, method: :delete %>
+</div>

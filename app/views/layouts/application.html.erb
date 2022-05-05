@@ -8,9 +8,22 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <ul>
+      MENU
+      <li><%= link_to "Strona główna", root_path %></li>
+      <li><%= link_to "Uzytkownicy", users_path %></li>
+      <li><%= link_to "Stacje paliw", petrol_stations_path %></li>
+      <% if logged_in? %>
+        <li><%= link_to "Wyloguj", logout_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to "Zaloguj", login_path %></li>
+      <% end %>
+    </ul>
   </head>
 
   <body>
+
     <%= yield %>
   </body>
 </html>

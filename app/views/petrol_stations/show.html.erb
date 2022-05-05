@@ -2,9 +2,34 @@
 
 <%= render @petrol_station %>
 
-<div>
-  <%= link_to "Edit this petrol station", edit_petrol_station_path(@petrol_station) %> |
-  <%= link_to "Back to petrol stations", petrol_stations_path %>
+  <h1>Daty wpisów</h1>
+  <%#W przypadku .post_dates wyskakuje błąd na /petrol-station/X %>
+  <%#W przypadku .postdate wyskakuje błąd na /petrol-station/X/post_dates/new %>
+<% if @petrol_station.post_date.length == 0 %>
+  Nie ma żadnych wpisów
+<% else %>
+  <% @petrol_station.post_date.each do |post_date| %>
+    <%= link_to [@petrol_station, post_date] do %>
+    <h4><%= post_date.title %> by <%= post_date.user.name %></h4>
+    <% end %>
+    <% post_date.posts.each do |post| %>
+      <p>
+        <%# <%= post.body %> 
+      </p>
+      <h6>by <%= post.user.name %></h6>
+    <% end %>
+  <% end %>
+<% end %>
 
-  <%= button_to "Destroy this petrol station", @petrol_station, method: :delete %>
-</div>
+<hr>
+
+<% if logged_in? %>
+  <%= link_to "Dodaj datę", new_petrol_station_post_date_path(@petrol_station) %>
+<% end %>
+
+<%# <div> %>
+  <%# <%= link_to "Edit this petrol station", edit_petrol_station_path(@petrol_station) %> 
+  <%# <%= link_to "Back to petrol stations", petrol_stations_path %>
+
+  <%# <%= button_to "Destroy this petrol station", @petrol_station, method: :delete %>
+<%# </div> %>

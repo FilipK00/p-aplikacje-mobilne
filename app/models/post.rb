@@ -1,4 +1,4 @@
 class Post < ApplicationRecord
   belongs_to :user
-  belongs_to :petrol_station
+  belongs_to :post_date
 end

@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
 
+  def new
+  end
+
   def create
     user = User.find_by(index: params[:session][:index])
     if user && user.authenticate(params[:session][:password])
@@ -10,7 +13,9 @@ class SessionsController < ApplicationController
     end
   end
 
-  def new
+  def destroy
+    log_out
+    redirect_to root_url
   end
 
 end
