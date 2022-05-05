@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Post dates</h1>
+
+<div id="post_dates">
+  <% @post_dates.each do |post_date| %>
+    <%= render post_date %>
+    <p>
+      <%= link_to "Show this post date", post_date %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New post date", new_post_date_path %>

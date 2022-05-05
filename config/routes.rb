@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :post_dates
   get 'sessions/new'
   resources :posts
   resources :petrol_stations
