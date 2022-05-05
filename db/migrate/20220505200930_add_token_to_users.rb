@@ -1,4 +1,4 @@
-class AddTokenToStudents < ActiveRecord::Migration[5.1]
+class AddTokenToUsers < ActiveRecord::Migration[5.1]
   def change
     add_column :users, :token, :string
     add_index :users, :token
