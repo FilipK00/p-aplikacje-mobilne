@@ -3,9 +3,12 @@
 <h3> Lista stacji paliw: <h3>
 
 <ul>
+
 <% @stations.each do |station| %>
   <%= link_to station do %>
     <li><%= station.name %> <%= station.address %></li>
   <% end %>
 <% end %>
+
+
 </ul>

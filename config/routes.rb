@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   resources :post_dates
   get 'sessions/new'
-  resources :posts
-  resources :petrol_stations
   resources :users
+  resources :petrol_stations do
+    resources :post_dates, only: [:new, :create, :edit, :update, :show, :destroy] do
+      resources :post_dates, only: [:new, :create, :edit, :update, :show, :destroy]
+    end
+  end
   
   root to: 'static#index'
 
