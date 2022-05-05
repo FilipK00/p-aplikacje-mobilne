@@ -1,4 +1,4 @@
-<%= form_with(model: post_date) do |form| %>
+<%= form_for [@petrol_station, @post_date] do |form| %>
   <% if post_date.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(post_date.errors.count, "error") %> prohibited this post_date from being saved:</h2>

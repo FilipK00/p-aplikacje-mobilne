@@ -1,17 +1,29 @@
-<div id="<%= dom_id post_date %>">
-  <p>
-    <strong>Title:</strong>
-    <%= post_date.title %>
-  </p>
+<p id="notice"><%= notice %></p>
 
-  <p>
-    <strong>User:</strong>
-    <%= post_date.user_id %>
-  </p>
+<h1><%= @post_date.title %> by <%= link_to @post_date.user.name, @post_date.user %></h1>
+<h2><%= link_to @petrol_station.name, @petrol_station %></h2>
 
-  <p>
-    <strong>Petrol station:</strong>
-    <%= post_date.petrol_station_id %>
-  </p>
+<hr>
+<h1>Lista odpowiedzi</h1>
+<% if @post_date.posts.length == 0 %>
+  Nie ma żadnych odpowiedzi
+<% else %>
+  <ul>
+  <% @post_date.posts.each do |post| %>
+    <li>
+      <strong><%= post.user.name %> pisze:</strong> <%= post.body %>
+    </li>
+  <% end %>
+  </ul>
+<% end %>
 
-</div>
+<hr>
+
+<% if logged_in? && current_user.follows?(@petrol_station) %>
+  <%= link_to "Dodaj odpowiedź", new_petrol_station_post_date_post_path(@petrol_station,@post_date) %>
+<% end %>
+
+<hr>
+
+<%= link_to 'Edit', edit_petrol_station_post_date_path(@petrol_station, @post_date) %> |
+<%= link_to 'Back', @petrol_station %>
