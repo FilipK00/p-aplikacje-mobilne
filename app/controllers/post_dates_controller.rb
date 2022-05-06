@@ -1,27 +1,22 @@
 class PostDatesController < ApplicationController
   before_action :set_post_date, only: %i[show edit update destroy ]
 
-  # GET /post_dates or /post_dates.json
   def index
     @post_dates = PostDate.all
   end
 
-  # GET /post_dates/1 or /post_dates/1.json
   def show
   end
 
-  # GET /post_dates/new
   def new
     @petrol_station = PetrolStation.find(params[:petrol_station_id])
     # tutaj występuje bład, gdy dam post_dates ! - podczas "Dodaj datę"
     @post_date = @petrol_station.post_date.new
   end
 
-  # GET /post_dates/1/edit
   def edit
   end
 
-  # POST /post_dates or /post_dates.json
   def create
     @petrol_station = PetrolStation.find(params[:petrol_station_id])
     # tutaj występuje błąd, gdy ustawie @petrol_station.post_dates.new - po zakończeniu tworzenia "PostDate", czyt. uzupełnisz dane i klikasz "Create Post date"
@@ -40,7 +35,6 @@ class PostDatesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /post_dates/1 or /post_dates/1.json
   def update
     respond_to do |format|
       if @post_date.update(post_date_params)
@@ -53,7 +47,6 @@ class PostDatesController < ApplicationController
     end
   end
 
-  # DELETE /post_dates/1 or /post_dates/1.json
   def destroy
     @post_date.destroy
 
@@ -69,7 +62,6 @@ class PostDatesController < ApplicationController
       @post_date = PostDate.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def post_date_params
       params.require(:post_date).permit(:title, :user_id, :petrol_station_id)
     end

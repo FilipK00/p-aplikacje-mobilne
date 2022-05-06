@@ -1,12 +1,10 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[ show edit update destroy ]
+  before_action :set_post, only: %i[show edit update destroy]
 
-  # GET /posts or /posts.json
   def index
     @posts = Post.all
   end
 
-  # GET /posts/1 or /posts/1.json
   def show
   end
 
@@ -19,7 +17,6 @@ class PostsController < ApplicationController
   def edit
   end
 
-  # GET /posts/new
   def create
     @petrol_station = petrol_station.find(params[:petrol_station_id])
     @post_date = post_date.find(params[:post_date_id])
@@ -37,7 +34,6 @@ class PostsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /posts/1 or /posts/1.json
   def update
     respond_to do |format|
       if @post.update(post_date_params)
@@ -50,24 +46,22 @@ class PostsController < ApplicationController
     end
   end
 
-  # DELETE /posts/1 or /posts/1.json
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
+      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
     def set_post
-      @petrol_station = PetrolStation.find(params[:petrol_station_id])
-      @post_date = PostDate.find(params[:post_date_id])
+      @petrol_station = petrol_station.find(params[:petrol_station_id])
+      @post_date = post_date.find(params[:post_date_id])
       @post = Post.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:pb_price, :diesel_price, :user_id, :petrol_station_id)
+      params.require(:post).permit(:body, :user_id, :post_date_id)
     end
 end
