@@ -18,8 +18,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @petrol_station = petrol_station.find(params[:petrol_station_id])
-    @post_date = post_date.find(params[:post_date_id])
+    @petrol_station = PetrolStation.find(params[:petrol_station_id])
+    @post_date = PostDate.find(params[:post_date_id])
     @post = @post_date.posts.new(post_params)
     @post.user = current_user
 
@@ -56,8 +56,8 @@ class PostsController < ApplicationController
 
   private
     def set_post
-      @petrol_station = petrol_station.find(params[:petrol_station_id])
-      @post_date = post_date.find(params[:post_date_id])
+      @petrol_station = PetrolStation.find(params[:petrol_station_id])
+      @post_date = PostDate.find(params[:post_date_id])
       @post = Post.find(params[:id])
     end
 
