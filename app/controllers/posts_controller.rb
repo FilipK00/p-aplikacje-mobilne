@@ -11,10 +11,21 @@ class PostsController < ApplicationController
   end
 
   # GET /posts/new
-  def new
+  def create
     @petrol_station = PetrolStation.find(params[:petrol_station_id])
-    @post_date = PostDate.find(params[:postdate_id])
-    @post = @post_date.posts.new
+    @post_date = PostDate.find(params[:post_date_id])
+    @post = @post_date.posts.new(post_params)
+    @post.user = current_user
+  
+    respond_to do |format|
+      if @post.save
+        format.html { redirect_to [@petrol_station, @post_date], notice: 'Post was successfully created.' }
+        format.json { render :show, status: :created, location: @post }
+      else
+        format.html { render :new }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # GET /posts/1/edit
@@ -42,11 +53,11 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1 or /posts/1.json
   def update
     respond_to do |format|
-      if @post.update(post_params)
-        format.html { redirect_to [@petrol_station, @post_date], notice: 'post_date was successfully updated.' }
+      if @post.update(post_date_params)
+        format.html { redirect_to [@petrol_station, @post_date], notice: 'Topic was successfully updated.' }
         format.json { render :show, status: :ok, location: @post_date }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { render :edit }
         format.json { render json: @post_date.errors, status: :unprocessable_entity }
       end
     end
@@ -67,6 +78,7 @@ class PostsController < ApplicationController
     def set_post
       @petrol_station = PetrolStation.find(params[:petrol_station_id])
       @post_date = PostDate.find(params[:post_date_id])
+      @post = Post.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

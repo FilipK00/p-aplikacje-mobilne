@@ -5,8 +5,10 @@
 <h1><%= @post_date.title %> 
 <h2><%= link_to @petrol_station.name, @petrol_station %></h2>
 
-<div>
+<h3><%= link_to "Dodaj cenę", new_petrol_station_post_date_post_path(@petrol_station,@post_date) %></h3>
+
+<p>
   <%= link_to 'Edit', edit_petrol_station_post_date_path(@petrol_station, @post_date) %> |
   <%= link_to 'Back', @petrol_station %>
   <%# <%= button_to "Destroy this post date", @post_date, method: :delete %> 
-</div>
+</p>
