@@ -23,6 +23,8 @@ class PostDatesController < ApplicationController
   # POST /post_dates or /post_dates.json
   def create
     @petrol_station = PetrolStation.find(params[:petrol_station_id])
+    # tutaj występuje błąd, gdy ustawimy @petrol_station.post_dates.new
+    # błąd: undefined method `post_dates' for #<PetrolStation id: 1, name: "Orlen (Szybowcowa)", address: "ul. Szybowcowa 27, Wrocław", created_at: "2022-05-04 19:37:53.821037000 +0000", updated_at: "2022-05-04 19:37:53.821037000 +0000">
     @post_date = @petrol_station.post_dates.new(post_date_params)
     @post_date.user = current_user
   
@@ -63,6 +65,8 @@ class PostDatesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post_date
+      #tutaj występuje błąd
+      #błąd: undefined local variable or method `petrol_station' for #<PostDatesController:0x000000000308e0>
       @petrol_station = petrol_station.find(params[:petrol_station_id])
       @post_date = PostDate.find(params[:id])
     end

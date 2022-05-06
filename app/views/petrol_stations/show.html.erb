@@ -10,13 +10,7 @@
 <% else %>
   <% @petrol_station.post_date.each do |post_date| %>
     <%= link_to [@petrol_station, post_date] do %>
-    <h4><%= post_date.title %> by <%= post_date.user.name %></h4>
-    <% end %>
-    <% post_date.posts.each do |post| %>
-      <p>
-        <%# <%= post.body %> 
-      </p>
-      <h6>by <%= post.user.name %></h6>
+    <h4><%= post_date.title %> </h4>
     <% end %>
   <% end %>
 <% end %>
