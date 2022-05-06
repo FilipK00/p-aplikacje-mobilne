@@ -10,13 +10,22 @@ class PostsController < ApplicationController
   def show
   end
 
-  # GET /posts/new
-  def create
+  def new
     @petrol_station = PetrolStation.find(params[:petrol_station_id])
     @post_date = PostDate.find(params[:post_date_id])
+    @post = @post_date.posts.new
+  end
+
+  def edit
+  end
+
+  # GET /posts/new
+  def create
+    @petrol_station = petrol_station.find(params[:petrol_station_id])
+    @post_date = post_date.find(params[:post_date_id])
     @post = @post_date.posts.new(post_params)
     @post.user = current_user
-  
+
     respond_to do |format|
       if @post.save
         format.html { redirect_to [@petrol_station, @post_date], notice: 'Post was successfully created.' }
@@ -28,33 +37,11 @@ class PostsController < ApplicationController
     end
   end
 
-  # GET /posts/1/edit
-  def edit
-  end
-
-  # POST /posts or /posts.json
-  def create
-    @petrol_station = PetrolStation.find(params[:petrol_station_id])
-    @post_date = PostDate.find(params[:post_date_id])
-    @post = @post_date.posts.new(post_params)
-    @post.user = current_user
-
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to [@petrol_station, @post_date], notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   # PATCH/PUT /posts/1 or /posts/1.json
   def update
     respond_to do |format|
       if @post.update(post_date_params)
-        format.html { redirect_to [@petrol_station, @post_date], notice: 'Topic was successfully updated.' }
+        format.html { redirect_to [@petrol_station, @post_date], notice: 'post_date was successfully updated.' }
         format.json { render :show, status: :ok, location: @post_date }
       else
         format.html { render :edit }
@@ -66,7 +53,6 @@ class PostsController < ApplicationController
   # DELETE /posts/1 or /posts/1.json
   def destroy
     @post.destroy
-
     respond_to do |format|
       format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
       format.json { head :no_content }
@@ -74,7 +60,6 @@ class PostsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_post
       @petrol_station = PetrolStation.find(params[:petrol_station_id])
       @post_date = PostDate.find(params[:post_date_id])
