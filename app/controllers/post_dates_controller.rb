@@ -1,5 +1,5 @@
 class PostDatesController < ApplicationController
-  before_action :set_post_date, only: [:show, :edit, :update, :destroy ]
+  before_action :set_post_date, only: %i[show edit update destroy ]
 
   # GET /post_dates or /post_dates.json
   def index

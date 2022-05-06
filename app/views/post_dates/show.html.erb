@@ -2,9 +2,11 @@
 
 <%= render @post_date %>
 
-<div>
-  <%= link_to "Edit this post date", edit_post_date_path(@post_date) %> |
-  <%= link_to "Back to post dates", post_dates_path %>
+<h1><%= @post_date.title %> 
+<h2><%= link_to @petrol_station.name, @petrol_station %></h2>
 
-  <%= button_to "Destroy this post date", @post_date, method: :delete %>
+<div>
+  <%= link_to 'Edit', edit_petrol_station_post_date_path(@petrol_station, @post_date) %> |
+  <%= link_to 'Back', @petrol_station %>
+  <%# <%= button_to "Destroy this post date", @post_date, method: :delete %> 
 </div>

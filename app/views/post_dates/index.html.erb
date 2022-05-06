@@ -6,7 +6,7 @@
   <% @post_dates.each do |post_date| %>
     <%= render post_date %>
     <p>
-      <%= link_to "Show this post date", post_date %>
+      <%= link_to post_date.title, post_date %>
     </p>
   <% end %>
 </div>
