@@ -12,6 +12,9 @@ gem "sprockets-rails"
 # Secure password
 gem "bcrypt", "~> 3.1.7"
 
+# Meta tag helper
+gem 'meta-tags-helpers', '~> 0.2.0'
+
 # ERD
 gem "rails-erd"
 
