@@ -1,0 +1,17 @@
+<ul>
+<% for petrol_station in current_user.petrol_stations do %>
+  <li><%= petrol_station.name %></li>
+  <ul>
+  <% for post_date in petrol_station.post_dates do %>
+    <li><%= post_date.title %></li>
+    <ul>
+      <% for post in post_date.posts %>
+        <li><%= post.pb_price %></li>
+        <li><%= post.diesel_price %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  </ul>
+<% end %>
+</ul>
+
