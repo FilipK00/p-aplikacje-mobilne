@@ -1,25 +1,20 @@
 class PetrolStationsController < ApplicationController
   before_action :set_petrol_station, only: %i[ show edit update destroy ]
 
-  # GET /petrol_stations or /petrol_stations.json
   def index
     @petrol_stations = PetrolStation.all
   end
 
-  # GET /petrol_stations/1 or /petrol_stations/1.json
   def show
   end
 
-  # GET /petrol_stations/new
   def new
     @petrol_station = PetrolStation.new
   end
 
-  # GET /petrol_stations/1/edit
   def edit
   end
 
-  # POST /petrol_stations or /petrol_stations.json
   def create
     @petrol_station = PetrolStation.new(petrol_station_params)
 
@@ -34,7 +29,6 @@ class PetrolStationsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /petrol_stations/1 or /petrol_stations/1.json
   def update
     respond_to do |format|
       if @petrol_station.update(petrol_station_params)
@@ -47,7 +41,6 @@ class PetrolStationsController < ApplicationController
     end
   end
 
-  # DELETE /petrol_stations/1 or /petrol_stations/1.json
   def destroy
     @petrol_station.destroy
 
@@ -58,12 +51,10 @@ class PetrolStationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_petrol_station
       @petrol_station = PetrolStation.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def petrol_station_params
       params.require(:petrol_station).permit(:name, :address)
     end
