@@ -25,20 +25,3 @@ petrol_stations = PetrolStation.create(
         }
     ]
 )
-
-# post_dates = PostDate.create(
-#     [
-#         {
-#             title: '6-05-2022',
-#             user: users.first,
-#             petrol_station: petrol_stations.first
-#         },
-#         {
-#             title: '4-05-2022',
-#             user: users.first,
-#             petrol_station: petrol_stations.last
-#         }
-#     ]
-# )
-
-#users.first.petrol_stations = petrol_stations
