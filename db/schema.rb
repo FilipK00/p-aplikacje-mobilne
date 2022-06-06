@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_06_214628) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_06_215552) do
   create_table "petrol_stations", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -36,6 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_06_214628) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "post_dates_id"
+    t.integer "post_date_id"
     t.index ["petrol_station_id"], name: "index_posts_on_petrol_station_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
