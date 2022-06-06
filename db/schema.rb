@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_10_221123) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_06_214628) do
   create_table "petrol_stations", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -35,6 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_10_221123) do
     t.integer "petrol_station_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "post_dates_id"
     t.index ["petrol_station_id"], name: "index_posts_on_petrol_station_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
@@ -53,6 +54,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_10_221123) do
   create_table "users_petrol_stations", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "post_date_id"
   end
 
   add_foreign_key "post_dates", "petrol_stations"
