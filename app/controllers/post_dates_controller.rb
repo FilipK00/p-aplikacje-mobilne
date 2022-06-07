@@ -11,6 +11,12 @@ class PostDatesController < ApplicationController
     @post_dates = PostDate.all
   end
 
+  swagger_api :show do
+    summary 'Returns one post date'
+    param :path, :petrol_station_id, :integer, :required, "Petrol Station id"
+    param :path, :id, :integer, :required, "Post date id"
+    notes 'Notes...'
+  end
   def show
   end
 
@@ -23,6 +29,12 @@ class PostDatesController < ApplicationController
   def edit
   end
 
+  swagger_api :create do
+    summary "Create new post date"
+    param :header, "Authorization", :string, :required, "Authentication token"
+    param :path, :petrol_station_id, :integer, :required, "Petrol Station id"
+    param :form, "post_date[title]", :string, :required, "Title of a post date"
+  end
   def create
     @petrol_station = PetrolStation.find(params[:petrol_station_id])
     # tutaj występuje błąd, gdy ustawie @petrol_station.post_dates.new - po zakończeniu tworzenia "PostDate", czyt. uzupełnisz dane i klikasz "Create Post date"
@@ -41,6 +53,12 @@ class PostDatesController < ApplicationController
     end
   end
 
+  swagger_api :update do
+    summary "Update a post date"
+    param :path, :id, :integer, :required, "Post date id"
+    param :path, :petrol_station_id, :integer, :required, "Petrol Station id"
+    param :form, "post_date[title]", :string, :required, "Post date title"
+  end
   def update
     respond_to do |format|
       if @post_date.update(post_date_params)
@@ -53,6 +71,13 @@ class PostDatesController < ApplicationController
     end
   end
 
+
+  swagger_api :destroy do
+    summary 'Destroys a post date'
+    param :path, :id, :integer, :required, "Post date id"
+    param :path, :petrol_station_id, :integer, :required, "Petrol Station id"
+    notes 'Notes...'
+  end
   def destroy
     @post_date.destroy
 
