@@ -48,8 +48,8 @@ class PetrolStationsController < ApplicationController
   swagger_api :update do
     summary "Update a petrol station"
     param :path, :id, :integer, :required, "Petrol Station id"
-    param :form, "course[name]", :string, :required, "Petrol Station name"
-    param :form, "course[address]", :string, :required, "Petrol Station address"
+    param :form, "petrol_station[name]", :string, :required, "Petrol Station name"
+    param :form, "petrol_station[address]", :string, :required, "Petrol Station address"
   end
   def update
     respond_to do |format|
