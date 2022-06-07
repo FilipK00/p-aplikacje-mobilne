@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
 
+  # swagger_controller :posts, 'Posts'
+
   def index
     @posts = Post.all
   end
