@@ -14,6 +14,119 @@
           "method": "get"
         }
       ]
+    },
+    {
+      "path": "/users.json",
+      "operations": [
+        {
+          "summary": "Create a user",
+          "parameters": [
+            {
+              "paramType": "form",
+              "name": "user[name]",
+              "type": "string",
+              "description": "Users name",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "user[index]",
+              "type": "string",
+              "description": "Users index",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "user[password]",
+              "type": "string",
+              "description": "Users password",
+              "required": true
+            }
+          ],
+          "nickname": "Users#create",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "path": "/users/{id}.json",
+      "operations": [
+        {
+          "summary": "Returns one user",
+          "notes": "Notes...",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Users id",
+              "required": true
+            }
+          ],
+          "nickname": "Users#show",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/users/{id}.json",
+      "operations": [
+        {
+          "summary": "Update a user",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Users id",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "user[name]",
+              "type": "string",
+              "description": "Users name",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "user[index]",
+              "type": "string",
+              "description": "Users index",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "user[password]",
+              "type": "string",
+              "description": "Users password",
+              "required": true
+            }
+          ],
+          "nickname": "Users#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/users/{id}.json",
+      "operations": [
+        {
+          "summary": "Destroys a user",
+          "notes": "Notes...",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Users id",
+              "required": true
+            }
+          ],
+          "nickname": "Users#destroy",
+          "method": "delete"
+        }
+      ]
     }
   ],
   "authorizations": null
