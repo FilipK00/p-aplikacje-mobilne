@@ -14,6 +14,98 @@
           "method": "get"
         }
       ]
+    },
+    {
+      "path": "/post_dates.json",
+      "operations": [
+        {
+          "summary": "Create new post date",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "post_date[title]",
+              "type": "string",
+              "description": "Title of a post date",
+              "required": true
+            }
+          ],
+          "nickname": "PostDates#create",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "path": "/post_dates/{id}.json",
+      "operations": [
+        {
+          "summary": "Returns one post date",
+          "notes": "Notes...",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Post date id",
+              "required": true
+            }
+          ],
+          "nickname": "PostDates#show",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/post_dates/{id}.json",
+      "operations": [
+        {
+          "summary": "Update a post date",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Post date id",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "post_date[title]",
+              "type": "string",
+              "description": "Post date title",
+              "required": true
+            }
+          ],
+          "nickname": "PostDates#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/post_dates/{id}.json",
+      "operations": [
+        {
+          "summary": "Destroys a post date",
+          "notes": "Notes...",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Post date id",
+              "required": true
+            }
+          ],
+          "nickname": "PostDates#destroy",
+          "method": "delete"
+        }
+      ]
     }
   ],
   "authorizations": null
