@@ -4,13 +4,25 @@
   "basePath": "http://localhost:3000",
   "apis": [
     {
+      "path": "/post_dates.{format}",
+      "description": "Post Dates"
+    },
+    {
       "path": "/users.{format}",
       "description": "Users"
+    },
+    {
+      "path": "/posts.{format}",
+      "description": "Posts"
+    },
+    {
+      "path": "/petrol_stations.{format}",
+      "description": "Petrol Stations"
     }
   ],
   "authorizations": null,
   "info": {
-    "title": "Your application title",
+    "title": "Spolecznosciowy system informowania o cenach na stacjach paliw",
     "description": "Rails API documention with Swagger UI.",
     "termsOfServiceUrl": "",
     "contact": ""

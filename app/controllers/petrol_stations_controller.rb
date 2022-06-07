@@ -1,8 +1,11 @@
 class PetrolStationsController < ApplicationController
   before_action :set_petrol_station, only: %i[ show edit update destroy ]
+  swagger_controller :petrol_stations, 'Petrol Stations'
 
-  # swagger_controller :petrol_stations, 'Petrol Stations'
-
+  swagger_api :index do
+    summary 'Returns all petrol stations'
+    notes 'Notes...'
+  end
   def index
     @petrol_stations = PetrolStation.all
   end

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
   
   root to: 'static#index'
-  get '/api' => redirect('swagger/dist/index.html?url=/api-docs.json')
+  get '/api' => redirect('/swagger/dist/index.html?url=/api-docs.json')
 
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'

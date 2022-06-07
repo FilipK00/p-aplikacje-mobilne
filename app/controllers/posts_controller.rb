@@ -1,8 +1,11 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
+  swagger_controller :posts, 'Posts'
 
-  # swagger_controller :posts, 'Posts'
-
+  swagger_api :index do
+    summary 'Returns all posts'
+    notes 'Notes...'
+  end
   def index
     @posts = Post.all
   end

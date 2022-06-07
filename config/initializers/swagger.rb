@@ -1,26 +1,10 @@
-# # config/initializers/swagger-docs.rb
-# Swagger::Docs::Config.register_apis({
-#     "1.0" => {
-#       :api_file_path => "public/",
-#       :base_path => "http://localhost:3000",
-#       :clean_directory => true,
-#       :parent_controller => ApplicationController,
-#       :attributes => {
-#         :info => {
-#           "title" => "Społecznościowy system informowania o cenach na stacjach paliw",
-#           "description" => "Aplikacja internetowa umozliwiajaca spolecznosci tworzenie bazy cen na poszczegolnych stacjach paliw"
-#         }
-#       }
-#     }
-#   })
-
 #File config/initializers/swagger.rb
 Swagger::Docs::Config.register_apis({
     "1.0" => {
       # the extension used for the API
       :api_extension_type => :json,
       # the output location where your .json files are written to
-      :api_file_path => "public/apidocs",
+      :api_file_path => "public/",
       # the URL base path to your API
       :base_path => "http://localhost:3000",
       # if you want to delete all .json files at each generation
@@ -28,7 +12,7 @@ Swagger::Docs::Config.register_apis({
       # add custom attributes to api-docs
       :attributes => {
         :info => {
-          "title" => "Your application title",
+          "title" => "Spolecznosciowy system informowania o cenach na stacjach paliw",
           "description" => "Rails API documention with Swagger UI.",
           "termsOfServiceUrl" => "",
           "contact" => ""

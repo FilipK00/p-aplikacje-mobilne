@@ -1,8 +1,12 @@
 class PostDatesController < ApplicationController
   before_action :set_post_date, only: %i[show edit update destroy ]
 
-  # swagger_controller :post_dates, 'Post Dates'
+  swagger_controller :post_dates, 'Post Dates'
 
+  swagger_api :index do
+    summary 'Returns all post dates'
+    notes 'Notes...'
+  end
   def index
     @post_dates = PostDate.all
   end
