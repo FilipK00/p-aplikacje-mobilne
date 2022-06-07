@@ -10,6 +10,11 @@ class PetrolStationsController < ApplicationController
     @petrol_stations = PetrolStation.all
   end
 
+  swagger_api :show do
+    summary 'Returns one petrol station'
+    param :path, :id, :integer, :required, "Petrol Station id"
+    notes 'Notes...'
+  end
   def show
   end
 
@@ -20,6 +25,11 @@ class PetrolStationsController < ApplicationController
   def edit
   end
 
+  swagger_api :create do
+    summary "Create a petrol station"
+    param :form, "petrol_station[name]", :string, :required, "Petrol Station name"
+    param :form, "petrol_station[address]", :string, :required, "Petrol Station address"
+  end
   def create
     @petrol_station = PetrolStation.new(petrol_station_params)
 
@@ -34,6 +44,13 @@ class PetrolStationsController < ApplicationController
     end
   end
 
+
+  swagger_api :update do
+    summary "Update a petrol station"
+    param :path, :id, :integer, :required, "Petrol Station id"
+    param :form, "course[name]", :string, :required, "Petrol Station name"
+    param :form, "course[address]", :string, :required, "Petrol Station address"
+  end
   def update
     respond_to do |format|
       if @petrol_station.update(petrol_station_params)
@@ -46,6 +63,11 @@ class PetrolStationsController < ApplicationController
     end
   end
 
+  swagger_api :destroy do
+    summary 'Destroys a petrol station'
+    param :path, :id, :integer, :required, "Petrol Station id"
+    notes 'Notes...'
+  end
   def destroy
     @petrol_station.destroy
 
