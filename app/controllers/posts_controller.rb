@@ -17,6 +17,7 @@ class PostsController < ApplicationController
     @petrol_station = PetrolStation.find(params[:petrol_station_id])
     @post_date = PostDate.find(params[:post_date_id])
     @post = @post_date.posts.new
+    @post.petrol_station_id = @petrol_station.id
   end
 
   def edit

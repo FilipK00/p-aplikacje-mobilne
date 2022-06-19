@@ -7,8 +7,21 @@
 
 <h3><%= link_to "Dodaj cenę", new_petrol_station_post_date_post_path(@petrol_station,@post_date) %></h3>
 
+<hr>
+<h1>Dzisiejsze ceny</h1>
+<% if @post_date.posts.length == 0 %>
+  Brak wpisów
+<% else %>
+  <ul>
+  <% @post_date.posts.each do |post| %>
+    <li>
+      <strong><%= post.user.name %> wprowadził cene:</strong> <%= post.pb_price %>
+    </li>
+  <% end %>
+  </ul>
+<% end %>
+
 <p>
   <%= link_to 'Edit', edit_petrol_station_post_date_path(@petrol_station, @post_date) %> |
   <%= link_to 'Back', @petrol_station %>
-  <%# <%= button_to "Destroy this post date", @post_date, method: :delete %> 
 </p>
