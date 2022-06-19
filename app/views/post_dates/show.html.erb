@@ -15,7 +15,8 @@
   <ul>
   <% @post_date.posts.each do |post| %>
     <li>
-      <strong><%= post.user.name %> wprowadził cene:</strong> <%= post.pb_price %>
+      <strong><%= post.user.name %> wprowadził cene benzyny:</strong> <%= post.pb_price %>
+      <strong><%= post.user.name %> wprowadził cene diesel-a:</strong> <%= post.diesel_price %>
     </li>
   <% end %>
   </ul>
